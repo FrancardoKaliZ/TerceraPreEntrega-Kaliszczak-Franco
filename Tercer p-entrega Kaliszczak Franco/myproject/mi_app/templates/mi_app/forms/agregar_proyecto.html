@@ -1,0 +1,28 @@
+
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Agregar Proyecto{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            
+            <h1 class="text-center">Crear proyecto</h1>
+            <p class="text-center fw-bold fst-italic">Debes completar todos los datos.</p>
+
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+          
+        <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary">Crear Proyecto</button>
+            <button onclick="window.location.href='/'">Volver al inicio</button>
+
+        </div>
+        </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

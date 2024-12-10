@@ -1,0 +1,27 @@
+
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Buscar Empleado{% endblock %}
+
+{% block content %}
+<h2>Buscar Empleado por DNI</h2>
+
+<form method="get" action="{% url 'buscar_empleado' %}">
+    <input type="text" name="q" value="{{ query }}" placeholder="Ingrese DNI" required>
+    <button type="submit">Buscar</button>
+</form>
+
+{% if empleados %}
+    <h2>Resultados de la búsqueda:</h2>
+    <ul>
+        {% for empleado in empleados %}
+            <li>{{ empleado.nombre }} - DNI: {{ empleado.dni }}</li>
+        {% endfor %}
+    </ul>
+{% elif query %}
+    <p>No se encontraron empleados con el DNI "{{ query }}".</p>
+{% else %}
+    <p>Por favor, ingresa un DNI para buscar.</p>
+{% endif %}
+{% endblock %}
+
